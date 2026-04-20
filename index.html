@@ -234,6 +234,27 @@
    <p>This is how i became motivated every events i swim.</p>
   <br>
 </section>
+   <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name    = htmlspecialchars($_POST['name']);
+    $email   = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+    $rating  = htmlspecialchars($_POST['rating']);
+
+    // ?? Put your Gmail address here
+    $to      = "veecemarkjosed@gmail.com";  
+
+    $subject = "New Feedback from $name";
+    $body    = "Name: $name\nEmail: $email\nRating: $rating\n\nMessage:\n$message";
+    $headers = "From: $email";
+
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Message sent successfully!";
+    } else {
+        echo "Message delivery failed.";
+    }
+}
+?>
 <section class="section rating">
   <h2>Feedback</h2>
   
@@ -314,27 +335,6 @@
     background-color: #00cc00;
     box-shadow: 0 0 10px #00ff00; /* glow on hover */
   }
-  <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name    = htmlspecialchars($_POST['name']);
-    $email   = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
-    $rating  = htmlspecialchars($_POST['rating']);
-
-    // ?? Put your Gmail address here
-    $to      = "veecemarkjosed@gmail.com";  
-
-    $subject = "New Feedback from $name";
-    $body    = "Name: $name\nEmail: $email\nRating: $rating\n\nMessage:\n$message";
-    $headers = "From: $email";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Message sent successfully!";
-    } else {
-        echo "Message delivery failed.";
-    }
-}
-?>
 </style>
 <footer>
   © 2026 Veecemark De Jesus | Portfolio
