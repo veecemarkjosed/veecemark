@@ -231,8 +231,8 @@
   <iframe width="350" height="200" src="https://youtube.com/embed/UmIYanq5gH8"></iframe>
   <iframe width="350" height="200" src="https://youtube.com/embed/fhRPhChywfU"></iframe>
   <iframe width="350" height="200" src="https://youtube.com/embed/EY8SVFr13m0"></iframe>
+   <p>This is how I enjoy playing pool.</p>
   <br>
-  <p>This is how I enjoy playing pool.</p>
 </section>
 
 <section id="contacts" class="section contacts">
@@ -252,10 +252,20 @@
   <br><br>
   <textarea rows="4" placeholder="Leave your feedback..."></textarea>
 </section>
+<section id="contact-form" class="section">
+  <h2>Contact Form</h2>
+  <form action="sendmail.php" method="POST">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <textarea name="message" rows="4" placeholder="Message or Inquiry..." required></textarea>
+    <button type="submit">Send</button>
+  </form>
+  </section>
 
 <footer>
   © 2026 Veecemark De Jesus | Portfolio
 </footer>
 
 </body>
+  
 </html>
