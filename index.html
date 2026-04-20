@@ -243,24 +243,40 @@
     <li>Phone: 09810557061</li>
   </ul>
 </section>
-
 <section class="section rating">
   <h2>Feedback</h2>
-  <label><input type="radio" name="rating"> Poor</label>
-  <label><input type="radio" name="rating"> Average</label>
-  <label><input type="radio" name="rating"> Excellent</label>
+  
+  <!-- Keep your rating options -->
+  <label><input type="radio" name="rating" value="Poor"> Poor</label>
+  <label><input type="radio" name="rating" value="Average"> Average</label>
+  <label><input type="radio" name="rating" value="Excellent"> Excellent</label>
   <br><br>
-  <textarea rows="4" placeholder="Leave your feedback..."></textarea>
-</section>
-<section id="contact-form" class="section">
-  <h2>Contact Form</h2>
+
+  <!-- Contact form -->
   <form action="sendmail.php" method="POST">
     <input type="text" name="name" placeholder="Full Name" required>
     <input type="email" name="email" placeholder="Email Address" required>
-    <textarea name="message" rows="4" placeholder="Message or Inquiry..." required></textarea>
+    <textarea name="message" rows="4" placeholder="Leave your feedback..." required></textarea>
+    
+    <!-- Hidden field to capture rating -->
+    <input type="hidden" name="rating" id="ratingValue">
+
+    <!-- Updated button text -->
     <button type="submit">Send</button>
   </form>
-  </section>
+</section>
+
+<script>
+  const radios = document.querySelectorAll('input[name="rating"]');
+  const ratingValue = document.getElementById('ratingValue');
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      ratingValue.value = radio.value;
+    });
+  });
+</script>
+
 
 <footer>
   © 2026 Veecemark De Jesus | Portfolio
