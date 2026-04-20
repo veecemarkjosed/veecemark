@@ -231,14 +231,13 @@
   <iframe width="350" height="200" src="https://youtube.com/embed/UmIYanq5gH8"></iframe>
   <iframe width="350" height="200" src="https://youtube.com/embed/fhRPhChywfU"></iframe>
   <iframe width="350" height="200" src="https://youtube.com/embed/EY8SVFr13m0"></iframe>
-   <p>This is how I enjoy playing pool.</p>
+   <p>This is how i became motivated every events i swim.</p>
   <br>
 </section>
-
 <section class="section rating">
   <h2>Feedback</h2>
   
-  <!-- Keep your rating options -->
+  <!-- Rating options -->
   <label><input type="radio" name="rating" value="Poor"> Poor</label>
   <label><input type="radio" name="rating" value="Average"> Average</label>
   <label><input type="radio" name="rating" value="Excellent"> Excellent</label>
@@ -269,6 +268,43 @@
     });
   });
 </script>
+
+<style>
+  .rating {
+    text-align: center;
+  }
+
+  .feedback-form {
+    display: flex;
+    flex-direction: column;   /* forces vertical stacking */
+    align-items: center;      /* centers the form */
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .feedback-form input,
+  .feedback-form textarea,
+  .feedback-form button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .feedback-form button {
+    background-color: #00ff00;
+    color: #111;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .feedback-form button:hover {
+    background-color: #00cc00;
+  }
+</style>
+
 <footer>
   © 2026 Veecemark De Jesus | Portfolio
 </footer>
