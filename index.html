@@ -235,14 +235,6 @@
   <br>
 </section>
 
-<section id="contacts" class="section contacts">
-  <h2>Contact</h2>
-  <ul>
-    <li><a href="https://www.facebook.com/VJ69.69.69" target="_blank">Facebook</a></li>
-    <li>Email: dveecemark@gmail.com</li>
-    <li>Phone: 09810557061</li>
-  </ul>
-</section>
 <section class="section rating">
   <h2>Feedback</h2>
   
@@ -261,12 +253,13 @@
     <!-- Hidden field to capture rating -->
     <input type="hidden" name="rating" id="ratingValue">
 
-    <!-- Updated button text -->
+    <!-- Button -->
     <button type="submit">Send</button>
   </form>
 </section>
 
 <script>
+  // Copy selected rating into hidden field
   const radios = document.querySelectorAll('input[name="rating"]');
   const ratingValue = document.getElementById('ratingValue');
 
@@ -276,9 +269,6 @@
     });
   });
 </script>
-
-
-
 <footer>
   © 2026 Veecemark De Jesus | Portfolio
 </footer>
