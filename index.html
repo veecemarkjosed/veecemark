@@ -243,18 +243,20 @@
   <label><input type="radio" name="rating" value="Excellent"> Excellent</label>
   <br><br>
 
-  <!-- Contact form -->
-  <form action="sendmail.php" method="POST" class="feedback-form">
-    <input type="text" name="name" placeholder="Full Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <textarea name="message" rows="4" placeholder="Leave your feedback..." required></textarea>
-    
-    <!-- Hidden field to capture rating -->
-    <input type="hidden" name="rating" id="ratingValue">
+  <!-- Background box wrapping the form -->
+  <div class="feedback-box">
+    <form action="sendmail.php" method="POST" class="feedback-form">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <textarea name="message" rows="4" placeholder="Leave your feedback..." required></textarea>
+      
+      <!-- Hidden field to capture rating -->
+      <input type="hidden" name="rating" id="ratingValue">
 
-    <!-- Button -->
-    <button type="submit">Send</button>
-  </form>
+      <!-- Button -->
+      <button type="submit">Send</button>
+    </form>
+  </div>
 </section>
 
 <script>
@@ -274,12 +276,20 @@
     text-align: center;
   }
 
+  /* Background box */
+  .feedback-box {
+    background-color: #222;       /* dark background */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;               /* center the box */
+    box-shadow: 0 0 15px rgba(0,255,0,0.5); /* neon glow */
+  }
+
   .feedback-form {
     display: flex;
-    flex-direction: column;   /* forces vertical stacking */
-    align-items: center;      /* centers the form */
-    max-width: 400px;
-    margin: 0 auto;
+    flex-direction: column;       /* stack vertically */
+    align-items: stretch;
   }
 
   .feedback-form input,
@@ -302,8 +312,10 @@
 
   .feedback-form button:hover {
     background-color: #00cc00;
+    box-shadow: 0 0 10px #00ff00; /* glow on hover */
   }
 </style>
+
 
 <footer>
   © 2026 Veecemark De Jesus | Portfolio
