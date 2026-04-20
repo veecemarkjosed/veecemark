@@ -9,32 +9,49 @@
       background-color: cadetblue;
       font-family: Arial, sans-serif;
       color: black;
-      margin: 20px;
+      margin: 0;
+      padding: 20px;
     }
-    header, section {
+    header {
       text-align: center;
       margin-bottom: 30px;
     }
-    table {
-      margin: auto;
-      border-collapse: collapse;
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: darkred;
     }
-    table td {
-      padding: 10px;
+    h2 {
+      margin: 5px 0;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .gallery div {
       text-align: center;
     }
-    iframe, video {
-      margin: 10px;
+    .links, .contacts, .rating {
+      margin: 30px auto;
+      max-width: 600px;
     }
-    ul {
+    .links ul, .contacts ul {
       list-style: none;
       padding: 0;
     }
-    ul li {
+    .links li, .contacts li {
       margin: 10px 0;
     }
-    .rating {
-      margin-top: 20px;
+    iframe, video {
+      margin: 10px;
+      border-radius: 8px;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -46,21 +63,30 @@
     <p>Student of CPSU-MPC BSIT-2A</p>
   </header>
 
-  <section>
-    <h3>Gallery</h3>
-    <table border="1">
-      <tr>
-        <td><img src="Messenger_creation_F3FF4E23-AF48-4E41-B3EA-6D5ADD12DBF9.jpeg" alt="Pic 1" width="70" height="120"><br>This is me listening.</td>
-        <td><img src="received_597101034672441.jpeg" alt="Pic 2" width="100" height="120"><br>This is me fooling myself.</td>
-        <td><img src="Messenger_creation_62886BC2-83CE-4986-B10D-D3260B7D937F.jpeg" alt="Pic 3" width="70" height="120"><br>This is me feeling cool.</td>
-      </tr>
-    </table>
+  <section class="gallery">
+    <div>
+      <img src="Messenger_creation_F3FF4E23-AF48-4E41-B3EA-6D5ADD12DBF9.jpeg" width="80" height="120" alt="Pic 1">
+      <p>Listening attentively</p>
+    </div>
+    <div>
+      <img src="received_597101034672441.jpeg" width="100" height="120" alt="Pic 2">
+      <p>Fooling myself</p>
+    </div>
+    <div>
+      <img src="Messenger_creation_62886BC2-83CE-4986-B10D-D3260B7D937F.jpeg" width="80" height="120" alt="Pic 3">
+      <p>Feeling cool</p>
+    </div>
   </section>
 
-  <section>
+  <section class="links">
     <h3>Quick Links</h3>
-    <p><a href="https://www.google.com" target="_blank">Go to Google</a></p>
-    <p><a href="Modern Resume.pdf" download>Download My Resume (PDF)</a></p>
+    <ul>
+      <li><a href="https://www.google.com" target="_blank">Search on Google</a></li>
+      <li><a href="Modern Resume.pdf" download>Download My Resume (PDF)</a></li>
+      <li><a href="https://www.canva.com/design/DAGwHyEHMx8/HPSNN3HntR_eRCer-FHAHQ/edit" target="_blank">Portfolio in Canva</a></li>
+      <li><a href="https://www.figma.com/design/K41Crp2se1Dl9ffawqPsx6/DE-JESUS-BSIT-2A" target="_blank">Portfolio in Figma</a></li>
+      <li><a href="https://www.canva.com/design/DAGx6su8Lnw/YY1wkmTNeSZfwEwK9s380A/edit" target="_blank">My 3AI's</a></li>
+    </ul>
   </section>
 
   <section>
@@ -73,16 +99,7 @@
     <p>This is how I play pool and enjoy myself.</p>
   </section>
 
-  <section>
-    <h3>Sample Outputs</h3>
-    <ul>
-      <li><a href="https://www.canva.com/design/DAGwHyEHMx8/HPSNN3HntR_eRCer-FHAHQ/edit" target="_blank">Portfolio in Canva</a></li>
-      <li><a href="https://www.figma.com/design/K41Crp2se1Dl9ffawqPsx6/DE-JESUS-BSIT-2A" target="_blank">Portfolio in Figma</a></li>
-      <li><a href="https://www.canva.com/design/DAGx6su8Lnw/YY1wkmTNeSZfwEwK9s380A/edit" target="_blank">My 3AI's</a></li>
-    </ul>
-  </section>
-
-  <section>
+  <section class="contacts">
     <h3>My Contacts</h3>
     <ul>
       <li><a href="https://www.facebook.com/VJ69.69.69" target="_blank">Facebook</a></li>
@@ -97,7 +114,7 @@
     <label><input type="radio" name="rating" value="notbad"> Not Bad</label>
     <label><input type="radio" name="rating" value="excellent"> Excellent</label>
     <br><br>
-    <textarea rows="4" cols="50" placeholder="Comments here..."></textarea>
+    <textarea rows="4" placeholder="Comments here..."></textarea>
   </section>
 
 </body>
