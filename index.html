@@ -14,22 +14,23 @@
     }
 
     body {
-      background: #1e1e1e;
+      background: #121212;
       color: #f5f5f5;
       line-height: 1.6;
     }
 
     nav {
-      background: #111;
+      background: #1c1c1c;
       padding: 15px;
       text-align: center;
       position: sticky;
       top: 0;
+      z-index: 1000;
     }
 
     nav a {
       color: #f5f5f5;
-      margin: 0 15px;
+      margin: 0 20px;
       text-decoration: none;
       font-weight: 500;
       transition: 0.3s;
@@ -41,44 +42,46 @@
 
     header {
       text-align: center;
-      padding: 80px 20px;
+      padding: 100px 20px;
       background: linear-gradient(135deg, #00bcd4, #006064);
     }
 
     header h1 {
-      font-size: 4rem;
+      font-size: 3rem;
       margin-bottom: 10px;
     }
 
     header p {
-      font-size: 1.5rem;
-      opacity: 0.8;
+      font-size: 1.2rem;
+      opacity: 0.9;
     }
 
     .section {
       padding: 60px 20px;
-      max-width: 1100px;
+      max-width: 900px;
       margin: auto;
     }
 
     h2 {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       color: #00bcd4;
+      font-size: 2rem;
     }
 
-    .gallery {
+    .gallery, .links, .videos, .contacts {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
       gap: 20px;
-      justify-content: center;
     }
 
     .card {
-      background: #2c2c2c;
-      padding: 15px;
+      background: #1e1e1e;
+      padding: 20px;
       border-radius: 10px;
-      width: 200px;
+      width: 100%;
+      max-width: 350px;
       text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -91,14 +94,14 @@
     .card img {
       width: 100%;
       border-radius: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .links a {
       display: block;
-      margin: 10px auto;
       padding: 12px;
-      width: 250px;
+      width: 100%;
+      max-width: 350px;
       background: #00bcd4;
       color: white;
       text-decoration: none;
@@ -111,22 +114,11 @@
       background: #008c9e;
     }
 
-    .videos {
-      text-align: center;
-    }
-
     iframe {
-      margin: 10px;
       border-radius: 10px;
-      max-width: 100%;
-    }
-
-    /* Contact Section */
-    .contacts {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+      width: 100%;
+      max-width: 500px;
+      height: 280px;
     }
 
     .contacts form {
@@ -168,7 +160,7 @@
     footer {
       text-align: center;
       padding: 20px;
-      background: #111;
+      background: #1c1c1c;
       margin-top: 40px;
       font-size: 0.9rem;
       color: #aaa;
@@ -179,8 +171,12 @@
         font-size: 2rem;
       }
 
-      .card {
-        width: 90%;
+      .card, .links a {
+        max-width: 100%;
+      }
+
+      iframe {
+        height: 200px;
       }
     }
   </style>
@@ -191,6 +187,7 @@
 <nav>
   <a href="#home">Home</a>
   <a href="#gallery">Gallery</a>
+  <a href="#certifications">Certifications</a>
   <a href="#projects">Projects</a>
   <a href="#videos">Videos</a>
   <a href="#contacts">Contacts</a>
@@ -246,9 +243,9 @@
 
 <section id="videos" class="section videos">
   <h2>Videos</h2>
-  <iframe width="350" height="200" src="https://youtube.com/embed/UmIYanq5gH8"></iframe>
-  <iframe width="350" height="200" src="https://youtube.com/embed/fhRPhChywfU"></iframe>
-  <iframe width="350" height="200" src="https://youtube.com/embed/EY8SVFr13m0"></iframe>
+  <iframe src="https://youtube.com/embed/UmIYanq5gH8"></iframe>
+  <iframe src="https://youtube.com/embed/fhRPhChywfU"></iframe>
+  <iframe src="https://youtube.com/embed/EY8SVFr13m0"></iframe>
   <p>This is how I became motivated every event I swim.</p>
 </section>
 
