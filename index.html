@@ -220,6 +220,35 @@
 
 <style>
   .gallery {
+    display: flex;              /* Arrange cards in a row */
+    flex-direction: row;        /* Horizontal layout */
+    justify-content: flex-start;/* Align items to the left (use center if you want them centered) */
+    gap: 20px;                  /* Space between cards */
+    flex-wrap: wrap;            /* Allow wrapping on smaller screens */
+  }
+
+  .card {
+    flex: 1 1 250px;            /* Flexible width, min 250px */
+    max-width: 300px;           /* Prevent cards from being too wide */
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+</style>
+
+
+<style>
+  .gallery {
     display: flex;              /* Arrange cards side by side */
     gap: 20px;                  /* Space between cards */
     justify-content: row;    /* Center them horizontally */
