@@ -269,6 +269,126 @@
   <p>Address: Negros, Philippines</p>
       </form>
   </section>
+  <!-- Chatbot Widget -->
+<div id="chatbot-container">
+  <div id="chatbot-header">💬 Chat with Me</div>
+  <div id="chatbot-messages"></div>
+  <div id="chatbot-input-area">
+    <input type="text" id="chatbot-input" placeholder="Type your message..." />
+    <button id="chatbot-send">Send</button>
+  </div>
+</div>
+
+<style>
+  /* Chatbot Styles */
+  #chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    height: 420px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    font-family: "Segoe UI", sans-serif;
+    overflow: hidden;
+  }
+
+  #chatbot-header {
+    background: #0078d7;
+    color: #fff;
+    padding: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  #chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+
+  .message {
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 80%;
+    line-height: 1.4;
+  }
+
+  .user-message {
+    background: #0078d7;
+    color: #fff;
+    align-self: flex-end;
+  }
+
+  .bot-message {
+    background: #f1f1f1;
+    color: #333;
+    align-self: flex-start;
+  }
+
+  #chatbot-input-area {
+    display: flex;
+    border-top: 1px solid #ddd;
+  }
+
+  #chatbot-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  #chatbot-send {
+    background: #0078d7;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  #chatbot-send:hover {
+    background: #005fa3;
+  }
+</style>
+
+<script>
+  // Chatbot Logic
+  const messagesContainer = document.getElementById("chatbot-messages");
+  const inputField = document.getElementById("chatbot-input");
+  const sendButton = document.getElementById("chatbot-send");
+
+  function addMessage(text, sender) {
+    const msg = document.createElement("div");
+    msg.classList.add("message", sender === "user" ? "user-message" : "bot-message");
+    msg.textContent = text;
+    messagesContainer.appendChild(msg);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  sendButton.addEventListener("click", () => {
+    const text = inputField.value.trim();
+    if (text !== "") {
+      addMessage(text, "user");
+      inputField.value = "";
+
+      // Simulated bot response (replace with API call later)
+      setTimeout(() => {
+        addMessage("Thanks for your message! I’ll get back to you soon.", "bot");
+      }, 600);
+    }
+  });
+
+  inputField.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendButton.click();
+  });
+</script>
 <footer>
   © 2026 Veecemark De Jesus | Portfolio
 </footer>
