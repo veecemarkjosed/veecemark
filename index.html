@@ -204,19 +204,47 @@
   <h2>Gallery</h2>
   <div class="gallery">
     <div class="card">
-      <img src="Messenger_creation_F3FF4E23-AF48-4E41-B3EA-6D5ADD12DBF9.jpeg">
+      <img src="Messenger_creation_F3FF4E23-AF48-4E41-B3EA-6D5ADD12DBF9.jpeg" alt="Listening attentively">
       <p>Listening attentively</p>
     </div>
     <div class="card">
-      <img src="received_597101034672441.jpeg">
+      <img src="received_597101034672441.jpeg" alt="Fooling around">
       <p>Fooling around</p>
     </div>
     <div class="card">
-      <img src="867d1fbf-fa57-4409-b60e-cc11b2478544 (1).jpg">
+      <img src="867d1fbf-fa57-4409-b60e-cc11b2478544 (1).jpg" alt="Feeling confident">
       <p>Feeling confident</p>
     </div>
   </div>
 </section>
+
+<style>
+  .gallery {
+    display: flex;              /* Arrange cards side by side */
+    gap: 20px;                  /* Space between cards */
+    justify-content: center;    /* Center them horizontally */
+    flex-wrap: wrap;            /* Allow wrapping on smaller screens */
+  }
+
+  .card {
+    flex: 1 1 200px;            /* Flexible width, min 200px */
+    max-width: 250px;           /* Prevent cards from being too wide */
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+</style>
+
 
 <section id="certifications" class="section">
   <h2>Certifications</h2>
@@ -275,7 +303,7 @@
 <!-- Chatbot Widget -->
 <div id="chatbot-container">
   <div id="chatbot-header">
-    Chat Assistant
+    Chat with Bogart
     <span id="chatbot-close">&times;</span>
   </div>
   <div id="chatbot-messages"></div>
@@ -447,13 +475,10 @@
       getBotResponse(text);
     }
   });
-
   inputField.addEventListener("keypress", (e) => {
     if (e.key === "Enter") sendButton.click();
   });
 </script>
-
-
 <footer>
   © 2026 Veecemark De Jesus | Portfolio
 </footer>
