@@ -269,9 +269,15 @@
   <p>Address: Negros, Philippines</p>
       </form>
   </section>
-  <!-- Chatbot Widget -->
+ <!-- Floating Chatbot Button -->
+<div id="chatbot-toggle">💬</div>
+
+<!-- Chatbot Widget -->
 <div id="chatbot-container">
-  <div id="chatbot-header">💬 Chat with Me</div>
+  <div id="chatbot-header">
+    Chat Assistant
+    <span id="chatbot-close">&times;</span>
+  </div>
   <div id="chatbot-messages"></div>
   <div id="chatbot-input-area">
     <input type="text" id="chatbot-input" placeholder="Type your message..." />
@@ -280,10 +286,25 @@
 </div>
 
 <style>
-  /* Chatbot Styles */
-  #chatbot-container {
+  /* Floating toggle button */
+  #chatbot-toggle {
     position: fixed;
     bottom: 20px;
+    right: 20px;
+    background: #0078d7;
+    color: #fff;
+    font-size: 22px;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 9999;
+  }
+
+  /* Chatbot container */
+  #chatbot-container {
+    position: fixed;
+    bottom: 80px;
     right: 20px;
     width: 320px;
     height: 420px;
@@ -291,10 +312,11 @@
     border: 1px solid #ddd;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    display: flex;
+    display: none; /* hidden until toggled */
     flex-direction: column;
     font-family: "Segoe UI", sans-serif;
     overflow: hidden;
+    z-index: 9999;
   }
 
   #chatbot-header {
@@ -302,7 +324,14 @@
     color: #fff;
     padding: 12px;
     font-weight: bold;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #chatbot-close {
+    cursor: pointer;
+    font-size: 18px;
   }
 
   #chatbot-messages {
@@ -310,6 +339,8 @@
     padding: 10px;
     overflow-y: auto;
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
   }
 
   .message {
@@ -359,10 +390,23 @@
 </style>
 
 <script>
-  // Chatbot Logic
+  const toggleBtn = document.getElementById("chatbot-toggle");
+  const chatbot = document.getElementById("chatbot-container");
+  const closeBtn = document.getElementById("chatbot-close");
   const messagesContainer = document.getElementById("chatbot-messages");
   const inputField = document.getElementById("chatbot-input");
   const sendButton = document.getElementById("chatbot-send");
+
+  // Toggle chatbot visibility
+  toggleBtn.addEventListener("click", () => {
+    chatbot.style.display = "flex";
+    toggleBtn.style.display = "none";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    chatbot.style.display = "none";
+    toggleBtn.style.display = "block";
+  });
 
   function addMessage(text, sender) {
     const msg = document.createElement("div");
@@ -372,16 +416,35 @@
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
 
+  async function getBotResponse(userText) {
+    try {
+      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "sk-...1CQA" // Replace with your key
+        },
+        body: JSON.stringify({
+          model: "gpt-4o-mini",
+          messages: [{ role: "user", content: userText }]
+        })
+      });
+
+      const data = await response.json();
+      const botReply = data.choices[0].message.content;
+      addMessage(botReply, "bot");
+    } catch (error) {
+      addMessage("Oops, something went wrong.", "bot");
+      console.error(error);
+    }
+  }
+
   sendButton.addEventListener("click", () => {
     const text = inputField.value.trim();
     if (text !== "") {
       addMessage(text, "user");
       inputField.value = "";
-
-      // Simulated bot response (replace with API call later)
-      setTimeout(() => {
-        addMessage("Thanks for your message! I’ll get back to you soon.", "bot");
-      }, 600);
+      getBotResponse(text);
     }
   });
 
@@ -389,6 +452,7 @@
     if (e.key === "Enter") sendButton.click();
   });
 </script>
+
 
 <footer>
   © 2026 Veecemark De Jesus | Portfolio
